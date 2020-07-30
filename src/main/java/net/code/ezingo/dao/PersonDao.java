@@ -19,7 +19,7 @@ public interface PersonDao {
      * @param person - person to be inserted into the database
      * @return integer - indicates if user was added to database
      */
-    default int addPerson(Person person){
+    default int insertPerson(Person person){
         UUID id = UUID.randomUUID();
         return insertPerson(id, person);
     }
