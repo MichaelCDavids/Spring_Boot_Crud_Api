@@ -2,6 +2,8 @@ package net.code.ezingo.dao;
 
 import net.code.ezingo.model.Person;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface PersonDao {
@@ -15,7 +17,7 @@ public interface PersonDao {
     int insertPerson(UUID id, Person person);
 
     /**
-     * The addPerson methods adds a user to the database generating a UUID for each Person
+     * The insertPerson methods adds a user to the database generating a UUID for each Person
      * @param person - person to be inserted into the database
      * @return integer - indicates if user was added to database
      */
@@ -23,4 +25,8 @@ public interface PersonDao {
         UUID id = UUID.randomUUID();
         return insertPerson(id, person);
     }
+    List<Person> selectAllPeople();
+    Optional<Person> selectPersonById(UUID id);
+    int deletePersonById(UUID id);
+    int updatePersonById(UUID id, Person person);
 }
